@@ -2,7 +2,7 @@
 
 
 #include "Character/AuraCharacterBase.h"
-
+#include "AbilitySystemComponent.h"
 
 // Sets default values
 AAuraCharacterBase::AAuraCharacterBase()
@@ -20,17 +20,20 @@ void AAuraCharacterBase::BeginPlay()
 	
 }
 
-//// Called every frame
-//void AAuraCharacterBase::Tick(float DeltaTime)
-//{
-//	Super::Tick(DeltaTime);
-//
-//}
-//
-//// Called to bind functionality to input
-//void AAuraCharacterBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-//{
-//	Super::SetupPlayerInputComponent(PlayerInputComponent);
-//
-//}
+void AAuraCharacterBase::ApplyEffectToSelf(TSubclassOf<UGameplayEffect> gameEffectClass, float level) const
+{
+	check(IsValid(GetAbilitySystemComponent()));
+	check(gameEffectClass);
+	FGameplayEffectContextHandle contextHandle = GetAbilitySystemComponent()->MakeEffectContext();
+	contextHandle.AddSourceObject(this);
+	FGameplayEffectSpecHandle effectSpecHandle = GetAbilitySystemComponent()->MakeOutgoingSpec(gameEffectClass, level, contextHandle);
+	GetAbilitySystemComponent()->ApplyGameplayEffectSpecToSelf(*effectSpecHandle.Data.Get());
+}
+
+void AAuraCharacterBase::InitializeDefaultAttributes() const
+{
+	ApplyEffectToSelf(DefaultPrimaryAttriburesEffect);
+	ApplyEffectToSelf(DefaultSecondaryAttriburesEffect);
+	ApplyEffectToSelf(DefaultVitalAttriburesEffect);
+}
 

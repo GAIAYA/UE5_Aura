@@ -5,13 +5,15 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "AbilitySystemInterface.h"
+#include "Interaction/CombatInterface.h"
 #include "AuraCharacterBase.generated.h"
 
 class UAbilitySystemComponent;
 class UAttributeSet;
+class UGameplayEffect;
 
 UCLASS(Abstract)
-class AURA_API AAuraCharacterBase : public ACharacter, public IAbilitySystemInterface
+class AURA_API AAuraCharacterBase : public ACharacter, public IAbilitySystemInterface, public ICombatInterface
 {
 	GENERATED_BODY()
 
@@ -29,11 +31,18 @@ protected:
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
 	UPROPERTY()
 	TObjectPtr<UAttributeSet> AttributeSet;
-public:	
-	//// Called every frame
-	//virtual void Tick(float DeltaTime) override;
 
-	//// Called to bind functionality to input
-	//virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect|Attributes")
+	TSubclassOf<UGameplayEffect> DefaultPrimaryAttriburesEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect|Attributes")
+	TSubclassOf<UGameplayEffect> DefaultSecondaryAttriburesEffect;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effect|Attributes")
+	TSubclassOf<UGameplayEffect> DefaultVitalAttriburesEffect;
+
+	virtual void InitAbilityActorInfo() {}
+	void ApplyEffectToSelf(TSubclassOf<UGameplayEffect> gameEffectClass, float level = 1.f) const;
+	void InitializeDefaultAttributes() const;
+public:	
+
 
 };

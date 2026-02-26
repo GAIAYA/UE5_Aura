@@ -7,6 +7,7 @@
 #include "AbilitySystemComponent.h"
 #include "UI/HUD/AuraHUD.h"
 #include "Player/AuraPlayerController.h"
+#include "AbilitySystem/AuraAbilitySystemComponent.h"
 
 AAuraCharacter::AAuraCharacter()
 {
@@ -38,11 +39,19 @@ void AAuraCharacter::OnRep_PlayerState()
 	InitAbilityActorInfo();
 }
 
+int32 AAuraCharacter::GetAuraCharacterLevel()
+{
+	AAuraPlayerState* playState = GetPlayerState<AAuraPlayerState>();
+	check(playState);
+	return playState->GetAuraCharacterLevel();
+}
+
 void AAuraCharacter::InitAbilityActorInfo()
 {
 	AAuraPlayerState* playState = GetPlayerState<AAuraPlayerState>();
 	check(playState);
 	playState->GetAbilitySystemComponent()->InitAbilityActorInfo(playState, this);
+	Cast<UAuraAbilitySystemComponent>(playState->GetAbilitySystemComponent())->AbilityActorInfoSet();
 	AbilitySystemComponent = playState->GetAbilitySystemComponent();
 	AttributeSet = playState->GetAttributeSet();
 
@@ -53,6 +62,7 @@ void AAuraCharacter::InitAbilityActorInfo()
 		if (AAuraHUD* auraHUD = Cast<AAuraHUD>(pc->GetHUD()))
 			auraHUD->InitOverlay(pc, playState, AbilitySystemComponent, AttributeSet);
 	}
+	InitializeDefaultAttributes();
 }
 
 
