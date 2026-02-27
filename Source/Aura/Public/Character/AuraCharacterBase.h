@@ -1,4 +1,4 @@
-// Copyright Gaia
+ï»¿// Copyright Gaia
 
 #pragma once
 
@@ -25,7 +25,7 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(EditAnywhere, Category = "Combat")
-	TObjectPtr<USkeletalMeshComponent> Weapon;// ÎäÆ÷
+	TObjectPtr<USkeletalMeshComponent> Weapon;// æ­¦å™¨
 
 	UPROPERTY()
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;

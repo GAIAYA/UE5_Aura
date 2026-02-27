@@ -1,4 +1,4 @@
-// Copyright Gaia
+﻿// Copyright Gaia
 
 #include "Aura.h"
 #include "Modules/ModuleManager.h"

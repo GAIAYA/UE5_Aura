@@ -1,4 +1,4 @@
-// Copyright Gaia
+﻿// Copyright Gaia
 
 using UnrealBuildTool;
 using System.Collections.Generic;

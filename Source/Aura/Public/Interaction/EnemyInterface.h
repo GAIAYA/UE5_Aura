@@ -1,4 +1,4 @@
-// Copyright Gaia
+﻿// Copyright Gaia
 
 #pragma once
 

@@ -1,4 +1,4 @@
-// Copyright Gaia
+﻿// Copyright Gaia
 
 
 #include "AbilitySystem/MMC/MMC_MaxHealth.h"

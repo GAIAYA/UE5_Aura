@@ -1,4 +1,4 @@
-// Copyright Gaia
+﻿// Copyright Gaia
 
 
 #include "Interaction/EnemyInterface.h"

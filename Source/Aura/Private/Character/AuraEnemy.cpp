@@ -1,4 +1,4 @@
-// Copyright Gaia
+ï»¿// Copyright Gaia
 
 
 #include "Character/AuraEnemy.h"
@@ -10,10 +10,10 @@ AAuraEnemy::AAuraEnemy()
 {
 	GetMesh()->SetCollisionResponseToChannel(ECC_Visibility, ECR_Block);
 	AbilitySystemComponent = CreateDefaultSubobject<UAuraAbilitySystemComponent>("AbilitySystemComponent");
-	AbilitySystemComponent->SetIsReplicated(true);// ¿ÉÒÔ±»·şÎñÆ÷¸´ÖÆµ½¿Í»§¶Ë
+	AbilitySystemComponent->SetIsReplicated(true);// å¯ä»¥è¢«æœåŠ¡å™¨å¤åˆ¶åˆ°å®¢æˆ·ç«¯
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Minimal);
 
-	AttributeSet = CreateDefaultSubobject<UAuraAttributeSet>("AttributeSet");// ´´½¨ºó»á¹ØÁªAbilitySystemComponent
+	AttributeSet = CreateDefaultSubobject<UAuraAttributeSet>("AttributeSet");// åˆ›å»ºåä¼šå…³è”AbilitySystemComponent
 }
 
 void AAuraEnemy::BeginPlay()

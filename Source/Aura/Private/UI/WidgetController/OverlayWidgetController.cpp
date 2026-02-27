@@ -1,4 +1,4 @@
-// Copyright Gaia
+﻿// Copyright Gaia
 
 
 #include "UI/WidgetController/OverlayWidgetController.h"

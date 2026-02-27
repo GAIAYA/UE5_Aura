@@ -1,4 +1,4 @@
-// Copyright Gaia
+ï»¿// Copyright Gaia
 
 
 #include "AbilitySystem/AuraAttributeSet.h"
@@ -18,11 +18,11 @@ void UAuraAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
 	/*
 	* Secondary Attributes
 	*/
-	DOREPLIFETIME_CONDITION_NOTIFY(UAuraAttributeSet, Armor, COND_None, REPNOTIFY_Always);// ÕâÀï×¢²áÊôĞÔ
+	DOREPLIFETIME_CONDITION_NOTIFY(UAuraAttributeSet, Armor, COND_None, REPNOTIFY_Always);// è¿™é‡Œæ³¨å†Œå±æ€§
 	DOREPLIFETIME_CONDITION_NOTIFY(UAuraAttributeSet, ArmorPenetration, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UAuraAttributeSet, BlockChance, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UAuraAttributeSet, CriticalHitChance, COND_None, REPNOTIFY_Always);
-	DOREPLIFETIME_CONDITION_NOTIFY(UAuraAttributeSet, CriticalHitDamage, COND_None, REPNOTIFY_Always);// ÕâÀï×¢²áÊôĞÔ
+	DOREPLIFETIME_CONDITION_NOTIFY(UAuraAttributeSet, CriticalHitDamage, COND_None, REPNOTIFY_Always);// è¿™é‡Œæ³¨å†Œå±æ€§
 	DOREPLIFETIME_CONDITION_NOTIFY(UAuraAttributeSet, CriticalHitResistance, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UAuraAttributeSet, HealthRegeneration, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UAuraAttributeSet, ManaRegeneration, COND_None, REPNOTIFY_Always);
@@ -30,7 +30,7 @@ void UAuraAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
 	/*
 	* Primary Attributes
 	*/
-	DOREPLIFETIME_CONDITION_NOTIFY(UAuraAttributeSet, Strength, COND_None, REPNOTIFY_Always);// ÕâÀï×¢²áÊôĞÔ
+	DOREPLIFETIME_CONDITION_NOTIFY(UAuraAttributeSet, Strength, COND_None, REPNOTIFY_Always);// è¿™é‡Œæ³¨å†Œå±æ€§
 	DOREPLIFETIME_CONDITION_NOTIFY(UAuraAttributeSet, Intelligence, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UAuraAttributeSet, Resilience, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UAuraAttributeSet, Vigor, COND_None, REPNOTIFY_Always);
@@ -38,7 +38,7 @@ void UAuraAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
 	/*
 	* Vital Attributes
 	*/
-	DOREPLIFETIME_CONDITION_NOTIFY(UAuraAttributeSet, Health, COND_None, REPNOTIFY_Always);// ÕâÀï×¢²áÊôĞÔ
+	DOREPLIFETIME_CONDITION_NOTIFY(UAuraAttributeSet, Health, COND_None, REPNOTIFY_Always);// è¿™é‡Œæ³¨å†Œå±æ€§
 	DOREPLIFETIME_CONDITION_NOTIFY(UAuraAttributeSet, MaxHealth, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UAuraAttributeSet, Mana, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UAuraAttributeSet, MaxMana, COND_None, REPNOTIFY_Always);
@@ -47,7 +47,7 @@ void UAuraAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
 void UAuraAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue)
 {
 	Super::PreAttributeChange(Attribute, NewValue);
-	// ÕâÀï½öÊÇ¶Ômodify¼ÆËãµÄÖµ½øĞĞclamp£¬ÕæÕıµÄÊôĞÔĞŞ¸ÄÊÇÔÚPostGameplayEffectExecuteÖĞ½øĞĞµÄ
+	// è¿™é‡Œä»…æ˜¯å¯¹modifyè®¡ç®—çš„å€¼è¿›è¡Œclampï¼ŒçœŸæ­£çš„å±æ€§ä¿®æ”¹æ˜¯åœ¨PostGameplayEffectExecuteä¸­è¿›è¡Œçš„
 	if (Attribute == GetHealthAttribute())
 	{
 		NewValue = FMath::Clamp(NewValue, 0.f, GetMaxHealth());
@@ -96,7 +96,7 @@ void UAuraAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallba
 
 void UAuraAttributeSet::OnRep_Health(const FGameplayAttributeData& oldHealth) const
 {
-	GAMEPLAYATTRIBUTE_REPNOTIFY(UAuraAttributeSet, Health, oldHealth);// ÕâÀï´¥·¢¶îÍâ»Øµ÷£¬ÀıÈç¸üĞÂUIµÈ
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UAuraAttributeSet, Health, oldHealth);// è¿™é‡Œè§¦å‘é¢å¤–å›è°ƒï¼Œä¾‹å¦‚æ›´æ–°UIç­‰
 }
 
 void UAuraAttributeSet::OnRep_Mana(const FGameplayAttributeData& oldMana) const

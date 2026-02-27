@@ -1,4 +1,4 @@
-// Copyright Gaia
+﻿// Copyright Gaia
 
 
 #include "UI/HUD/AuraHUD.h"

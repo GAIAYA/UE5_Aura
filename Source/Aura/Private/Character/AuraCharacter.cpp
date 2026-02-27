@@ -1,4 +1,4 @@
-// Copyright Gaia
+ï»¿// Copyright Gaia
 
 
 #include "Character/AuraCharacter.h"
@@ -14,7 +14,7 @@ AAuraCharacter::AAuraCharacter()
 	
 	UCharacterMovementComponent* characterMovement = GetCharacterMovement();
 	check(characterMovement);
-	characterMovement->bOrientRotationToMovement = true;// ½ÇÉ«·½Ïò³¯ÏòÒÆ¶¯·½Ïò
+	characterMovement->bOrientRotationToMovement = true;// è§’è‰²æ–¹å‘æœå‘ç§»åŠ¨æ–¹å‘
 	characterMovement->RotationRate = FRotator(0.f, 400.f, 0.f);
 	characterMovement->bConstrainToPlane = true;
 	characterMovement->bSnapToPlaneAtStart = true;
@@ -28,14 +28,14 @@ AAuraCharacter::AAuraCharacter()
 void AAuraCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
-	// Îª·şÎñÆ÷³õÊ¼»¯AbilityActorInfo
+	// ä¸ºæœåŠ¡å™¨åˆå§‹åŒ–AbilityActorInfo
 	InitAbilityActorInfo();
 }
 
 void AAuraCharacter::OnRep_PlayerState()
 {
 	Super::OnRep_PlayerState();
-	// Îª¿Í»§¶Ë³õÊ¼»¯AbilityActorInfo
+	// ä¸ºå®¢æˆ·ç«¯åˆå§‹åŒ–AbilityActorInfo
 	InitAbilityActorInfo();
 }
 
@@ -56,7 +56,7 @@ void AAuraCharacter::InitAbilityActorInfo()
 	AttributeSet = playState->GetAttributeSet();
 
 
-	// ³õÊ¼»¯Overlay¿Ø¼şºÍ¶ÔÓ¦µÄWidgetController
+	// åˆå§‹åŒ–Overlayæ§ä»¶å’Œå¯¹åº”çš„WidgetController
 	if (AAuraPlayerController* pc = Cast<AAuraPlayerController>(GetController()))
 	{
 		if (AAuraHUD* auraHUD = Cast<AAuraHUD>(pc->GetHUD()))

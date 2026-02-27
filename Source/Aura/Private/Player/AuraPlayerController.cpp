@@ -1,4 +1,4 @@
-// Copyright Gaia
+ï»¿// Copyright Gaia
 
 
 #include "Player/AuraPlayerController.h"
@@ -26,7 +26,7 @@ void AAuraPlayerController::BeginPlay()
 
 	UEnhancedInputLocalPlayerSubsystem* subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer());
 	if(subsystem)
-		subsystem->AddMappingContext(AuraContext, 0);// ¹ØÁªInputMappingContextµ½EnhancedInputLocalPlayerSubsystem
+		subsystem->AddMappingContext(AuraContext, 0);// å…³è”InputMappingContextåˆ°EnhancedInputLocalPlayerSubsystem
 
 	bShowMouseCursor = true;
 	DefaultMouseCursor = EMouseCursor::Default;
@@ -34,7 +34,7 @@ void AAuraPlayerController::BeginPlay()
 	FInputModeGameAndUI inputModeDatas;
 	inputModeDatas.SetHideCursorDuringCapture(false);
 	inputModeDatas.SetLockMouseToViewportBehavior(EMouseLockMode::DoNotLock);
-	SetInputMode(inputModeDatas);// ÉèÖÃÊäÈëÄ£Ê½
+	SetInputMode(inputModeDatas);// è®¾ç½®è¾“å…¥æ¨¡å¼
 
 }
 
@@ -43,7 +43,7 @@ void AAuraPlayerController::SetupInputComponent()
 	Super::SetupInputComponent();
 
 	UEnhancedInputComponent* enhancedInputComponent = CastChecked<UEnhancedInputComponent>(InputComponent);
-	enhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AAuraPlayerController::Move);// ¹ØÁªInputAction
+	enhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AAuraPlayerController::Move);// å…³è”InputAction
 
 }
 
@@ -73,12 +73,12 @@ void AAuraPlayerController::CursorTrace()
 	ThisActor = cursorHit.GetActor();
 
 	/**
-	 * ¸ù¾İÁ¬¸öActorµÄ¡°×´Ì¬¡±£¬·Ö¼¸ÖÖÇé¿ö
-	 * 1¡¢LastActorÎª¿Õ && ThisActorÎª¿Õ						- Ê²Ã´¶¼²»×ö
-	 * 2¡¢LastActorÎª¿Õ && ThisActorÓĞĞ§						- ¸ßÁÁThisActor
-	 * 3¡¢LastActorÓĞĞ§ && ThisActorÎª¿Õ						- È¡Ïû¸ßÁÁLastActor
-	 * 4¡¢LastActorºÍThisActor¶¼ÓĞĞ§£¬µ«ÊÇLastActor!=ThisActor	- È¡Ïû¸ßÁÁLastActor£¬Í¬Ê±¸ßÁÁThisActor
-	 * 5¡¢LastActorºÍThisActor¶¼ÓĞĞ§£¬²¢ÇÒLastActor==ThisActor	- Ê²Ã´¶¼²»×ö
+	 * æ ¹æ®è¿ä¸ªActorçš„â€œçŠ¶æ€â€ï¼Œåˆ†å‡ ç§æƒ…å†µ
+	 * 1ã€LastActorä¸ºç©º && ThisActorä¸ºç©º						- ä»€ä¹ˆéƒ½ä¸åš
+	 * 2ã€LastActorä¸ºç©º && ThisActoræœ‰æ•ˆ						- é«˜äº®ThisActor
+	 * 3ã€LastActoræœ‰æ•ˆ && ThisActorä¸ºç©º						- å–æ¶ˆé«˜äº®LastActor
+	 * 4ã€LastActorå’ŒThisActoréƒ½æœ‰æ•ˆï¼Œä½†æ˜¯LastActor!=ThisActor	- å–æ¶ˆé«˜äº®LastActorï¼ŒåŒæ—¶é«˜äº®ThisActor
+	 * 5ã€LastActorå’ŒThisActoréƒ½æœ‰æ•ˆï¼Œå¹¶ä¸”LastActor==ThisActor	- ä»€ä¹ˆéƒ½ä¸åš
 	 */
 
 	if (!LastActor)

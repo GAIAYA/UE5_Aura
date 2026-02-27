@@ -1,4 +1,4 @@
-// Copyright Gaia
+ï»¿// Copyright Gaia
 
 
 #include "Player/AuraPlayerState.h"
@@ -8,12 +8,12 @@
 
 AAuraPlayerState::AAuraPlayerState()
 {
-	AbilitySystemComponent = CreateDefaultSubobject<UAuraAbilitySystemComponent>("AbilitySystemComponent");// ÄÚ²¿´ËÊ±ÒÑ¾­¹ØÁªAttributeSet
-	AbilitySystemComponent->SetIsReplicated(true);// ¿ÉÒÔ±»·şÎñÆ÷¸´ÖÆµ½¿Í»§¶Ë
+	AbilitySystemComponent = CreateDefaultSubobject<UAuraAbilitySystemComponent>("AbilitySystemComponent");// å†…éƒ¨æ­¤æ—¶å·²ç»å…³è”AttributeSet
+	AbilitySystemComponent->SetIsReplicated(true);// å¯ä»¥è¢«æœåŠ¡å™¨å¤åˆ¶åˆ°å®¢æˆ·ç«¯
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Mixed);
 	AttributeSet = CreateDefaultSubobject<UAuraAttributeSet>("AttributeSet");
 
-	SetNetUpdateFrequency(100.f);// ·şÎñÆ÷¸üĞÂ¿Í»§¶ËÆµÂÊ
+	SetNetUpdateFrequency(100.f);// æœåŠ¡å™¨æ›´æ–°å®¢æˆ·ç«¯é¢‘ç‡
 }
 
 void AAuraPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const

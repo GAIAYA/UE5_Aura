@@ -1,4 +1,4 @@
-// Copyright Gaia
+﻿// Copyright Gaia
 
 #pragma once
 
@@ -13,7 +13,7 @@
  	GAMEPLAYATTRIBUTE_VALUE_SETTER(PropertyName) \
  	GAMEPLAYATTRIBUTE_VALUE_INITTER(PropertyName)
 
-//ʾ��
+//示例
 //static FGameplayAttribute UMyHealthSet::GetHealthAttribute();
 //FORCEINLINE float UMyHealthSet::GetHealth() const;
 //FORCEINLINE void UMyHealthSet::SetHealth(float NewVal);
